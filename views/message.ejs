@@ -50,7 +50,8 @@
       </button>
             </div>
             <div class="modal-body">
-                <p>host/messages/id</p>
+                <a target="_blank" href="<%= url %>"><%= url %></a>
+                <img src="<%= qrCode %>" class="w-100" alt="">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -64,13 +65,15 @@
 
 <!-- =================messages=================== -->
 <div class="container text-center my-5 text-center">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card py-5">
-                <p>You don't have any messages... </p>
+        <% for( let i = 0; i < messages.length; i++ ) { %>
+            <div class="row my-5">
+                <div class="col-md-12">
+                    <div class="card py-5">
+                        <p><%= messages[i].message %> </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        <% } %>
 </div>
 
 <%- include('./shared/footer.ejs') %>
